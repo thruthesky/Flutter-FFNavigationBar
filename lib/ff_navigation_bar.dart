@@ -28,8 +28,7 @@ class FFNavigationBar extends StatefulWidget {
   }
 
   @override
-  _FFNavigationBarState createState() =>
-      _FFNavigationBarState(selectedIndex: selectedIndex);
+  _FFNavigationBarState createState() => _FFNavigationBarState(selectedIndex: selectedIndex);
 }
 
 class _FFNavigationBarState extends State<FFNavigationBar> {
@@ -39,8 +38,7 @@ class _FFNavigationBarState extends State<FFNavigationBar> {
   @override
   Widget build(BuildContext context) {
     final FFNavigationBarTheme theme = widget.theme;
-    final bgColor =
-        theme.barBackgroundColor ?? Theme.of(context).bottomAppBarColor;
+    final bgColor = theme.barBackgroundColor ?? Theme.of(context).bottomAppBarColor;
 
     return MultiProvider(
       providers: [
@@ -48,15 +46,8 @@ class _FFNavigationBarState extends State<FFNavigationBar> {
         Provider<int>.value(value: widget.selectedIndex),
       ],
       child: Container(
-        decoration: BoxDecoration(
-          color: bgColor,
-          boxShadow: [
-            const BoxShadow(
-              color: Colors.black12,
-              blurRadius: 2,
-            ),
-          ],
-        ),
+        decoration:
+            BoxDecoration(color: bgColor, border: Border(top: BorderSide(color: Colors.grey[100]))),
         child: SafeArea(
           child: Container(
             width: double.infinity,
@@ -78,8 +69,7 @@ class _FFNavigationBarState extends State<FFNavigationBar> {
                   child: Container(
                     color: Colors.transparent,
                     child: SizedBox(
-                      width: MediaQuery.of(context).size.width /
-                          widget.items.length,
+                      width: MediaQuery.of(context).size.width / widget.items.length,
                       height: theme.barHeight,
                       child: item,
                     ),
